@@ -5,11 +5,11 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING
   });
 
-  Profile.associate = (models) =>{
-    Profile.belongTo(models.User, {
-      foreignKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-  };
+  // Profile.associate = (models) =>{
+  //   Profile.belongTo(models.User, {
+  //     foreignKey: 'userId',
+  //     onDelete: 'CASCADE'
+  //   });
+  // };
   return Profile;
 };

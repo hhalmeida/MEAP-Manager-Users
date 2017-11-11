@@ -5,12 +5,12 @@ module.exports = (sequelize, DataTypes) => {
     description: DataTypes.STRING
   });
 
-  History.associate = (models) =>{
-    History.belongTo(models.User, {
-      foreignKey: 'userId',
-      onDelete: 'CASCADE'
-    });
-  };
+  // History.associate = (models) =>{
+  //   History.belongTo(models.User, {
+  //     foreignKey: 'userId',
+  //     onDelete: 'CASCADE'
+  //   });
+  // };
 
   return History;
 };
