@@ -4,8 +4,7 @@ const profileCtrl = require('../controllers').profiles;
 module.exports = (app) =>{
 	const BASEURL = '/API/';
 
-
-	app.get('/api', (req, res) => res.status(200).send({
+	app.get('/api', (req, res, next) => res.status(200).send({
 		message: 'Wellcome to the Manager users API!',
 	}));
 
@@ -19,7 +18,6 @@ module.exports = (app) =>{
 	// Profiles
 	app.put(BASEURL+'profiles',profileCtrl.update);
 
-
 	// app.post('/api/users', (req, res) => {
 	// 	usersCtrl.create(req.body).then((data) => {
 	// 	    res.send({data})
@@ -28,7 +26,4 @@ module.exports = (app) =>{
 	// 	    res.status(400).send(e);
 	// 	});
 	// });
-
-
-	
 };

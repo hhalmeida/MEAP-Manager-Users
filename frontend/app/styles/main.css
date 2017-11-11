@@ -1,0 +1,121 @@
+/* ----------------------- SUMMARY -----------------------
+
+
+
+*/
+
+/* General
+----------------------------------------------- */
+html,body{
+  height:100%;
+  min-height:100%;
+  background-color:transparent;
+}
+
+a,
+a:hover,
+a:active,
+a:visited{
+  color:#00ACEA;
+}
+
+img{max-width:100%;}
+
+.poly-bg{
+  padding:15px;
+  background: url(/images/bg/bg2.png) #FFFFFF no-repeat top center;
+}
+
+.bg2{background:#c1dae6 url(/images/bg/bg_all_2.gif);}
+.bg3{background:#c1dae6 url(/images/bg/bg_all_3.gif);}
+
+.hand-cursor{cursor:pointer}
+
+.visible-hover{display:none;}
+.hover-parent:hover .visible-hover-inline-block{display:inline-block;}
+
+.round-box{
+  background-color:#FAFAFA;
+  padding:10px;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -goog-ms-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.dashed-message{
+  text-align:center;
+  padding:10px;
+  border:2px dashed #DCDCDC;
+}
+
+/* 
+----------------------------------------------- */
+
+.row.grid  > div{
+  margin-bottom:15px;
+}
+
+.placeholder{
+  text-align:center;
+  border: 2px dashed #C3C3C3;
+  color: #00ACEA;
+  
+}
+
+.placeholder.action{color:#5295D0!important;cursor:pointer!important;}
+
+.box, .hover-box{
+  position:relative;
+  color:#7C7C7C;
+  padding:10px;
+  background-color: rgba(244, 244, 244, 0.4);
+  box-shadow: 0 1px 3px rgb(234, 234, 234);
+}
+
+.box, .hover-box:hover{background-color: rgba(255, 255, 255, 0.8);}
+.hover-box{cursor:pointer;}
+
+/* List
+----------------------------------------------- */
+
+.pr-list{
+  padding:0;
+  margin:0;
+  list-style:none;
+}
+
+.pr-list li .table-cell{padding:6px;}
+.pr-list li {border:1px solid transparent;}
+.pr-list li:hover {border:1px dashed #DCDCDC;background-color:#FAFAFA;}
+
+
+
+
+
+.pr-tabs .nav.nav-tabs,
+.pr-tabs .nav.nav-tabs li{
+  border:none;
+}
+
+.pr-tabs .nav.nav-tabs li a{
+  background-color:rgba(244, 244, 244, 0.4);
+  border: 1px solid rgb(242, 242, 242);
+  border-bottom:none;
+  margin-bottom:1px;
+  margin-left:-1px;
+  color:rgb(150, 150, 150);
+  padding: 10px 15px;
+}
+
+.pr-tabs .nav.nav-tabs li.active a{
+  background-color:rgba(255, 255, 255, 0.8);
+  color:rgb(95, 132, 229);
+}
+
+.pr-tabs .nav.nav-tabs li a:hover{
+  background-color:rgba(255, 255, 255, 0.8);
+  color:rgb(95, 132, 229);
+}
+
+.pr-tabs .tab-content{background-color: rgba(255, 255, 255, 0.8);box-shadow: 0 1px 3px rgb(234, 234, 234);padding: 15px;}

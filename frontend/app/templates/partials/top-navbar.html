@@ -1,0 +1,90 @@
+<div id="top-navbar">
+  <div class="table-display vcenter-content">
+    <div class="table-cell adp-logo">
+      <img ng-src="{{imgBaseUrl}}/white-logo.png" />
+    </div>
+    <!-- <div class="table-cell hidden-sm-down">
+      <div class="adp-button inline no-margin">
+        Criar Campanha
+      </div>
+    </div> -->
+    <div class="table-cell text-right">
+      <div class="table-display inline" style="width:auto; margin-right:90px;">
+        <!-- <div class="table-cell fit-content"><i class="fa fa-bell-o"></i></div> -->
+        <div class="table-cell fit-content">
+          <div class="dropdown inline">
+            <div class="btn-user-action" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fa fa-user-circle-o" style="font-size:1.7em; vertical-align:middle"></i>&nbsp;&nbsp;
+              {{usuarioLogado.nome}}&nbsp;&nbsp;<i class="fa fa-angle-down"></i>
+            </div>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href ng-click="vm.popupAtualizaSenha.show({})">Trocar Senha</a>
+              <a class="dropdown-item" href ng-click="logout()">Sair</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TROCAR A SENHA -->
+<div class="modal-display" ng-show="vm.popupAtualizaSenha.isVisible">
+  <div class="table-display vcenter-content modal-window">
+    <div class="table-cell">
+      <div class="container"><div class="row justify-content-center"><div class="col-xs-12 col-sm-5">
+        <div class="popup-window">
+          <div class="popup-header text-center">
+            <div class="green-text vcenter-content"><i class="fa fa-lock font-size-36"></i><span class="font-size-22 bold">&nbsp;&nbsp;Alterar Senha</span></div>
+            <div class="close-button" ng-click="vm.popupAtualizaSenha.hide()"><i class="fa fa-close"></i></div>
+          </div>
+          <div class="popup-content">
+            <form name="vm.formPoupUpdatePass">
+              <div class="table-display" style="width:100%;">
+                <!-- <div class="table-cell"> -->
+                  <div class="form-group">
+                    <label for="codigo-input">Senha Antiga</label>
+                    <input type="password" class="form-control text-center" name="old_pass" id="old_pass" ng-model="vm.popupAtualizaSenha.password.old" placeholder="Senha antiga" required/>
+                    <div class="red-text font-size-11" ng-show="vm.formPoupUpdatePass.old_pass.$error.required &&
+                                                                vm.formPoupUpdatePass.old_pass.$dirty &&
+                                                                !vm.formPoupUpdatePass.old_pass.$focused">Campo obrigatório!</div>
+                  </div>
+                <!-- </div> -->
+                <!-- <div class="table-cell"> -->
+                  <div class="form-group">
+                    <label for="codigo-input">Nova Senha</label>
+                    <input type="password" class="form-control text-center" name="new_pass" id="new_pass" ng-model="vm.popupAtualizaSenha.password.new" placeholder="Nova senha" required/>
+                    <div class="red-text font-size-11" ng-show="vm.formPoupUpdatePass.new_pass.$error.required &&
+                                                                vm.formPoupUpdatePass.new_pass.$dirty &&
+                                                                !vm.formPoupUpdatePass.new_pass.$focused">Campo obrigatório!</div>
+                                                                <div class="red-text font-size-11" ng-show="vm.invalidPass">
+                                                                  A senha e a confirmação estão diferentes!
+                                                                </div>
+                  </div>
+                <!-- </div> -->
+                <!-- <div class="table-cell"> -->
+                  <div class="form-group">
+                    <label for="codigo-input">Confime a Senha</label>
+                    <input type="password" class="form-control text-center" name="confirm_pass" id="confirm_pass" ng-model="vm.popupAtualizaSenha.password.confirm" placeholder="Confirme a senha" required/>
+                    <div class="red-text font-size-11" ng-show="vm.formPoupUpdatePass.confirm_pass.$error.required &&
+                                                                vm.formPoupUpdatePass.confirm_pass.$dirty &&
+                                                                !vm.formPoupUpdatePass.confirm_pass.$focused">Campo obrigatório!</div>
+                                                                <div class="red-text font-size-11" ng-show="vm.invalidPass">
+                                                                  A senha e a confirmação estão diferentes!
+                                                                </div>
+                  </div>
+                <!-- </div> -->
+              </div>
+            </form>
+            <div class="vgap-20"><!-- Vertical Gap 20px --></div>
+            <div class="text-center">
+              <div class="adp-button md-button" ng-click="vm.popupAtualizaSenha.hide()">Cancelar</div>
+              <div class="adp-button md-button blue" ng-click="atualizarSenha(vm.formPoupUpdatePass)">Salvar</div>
+            </div>
+          </div>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+  <div class="modal-overlay"></div>
+</div>

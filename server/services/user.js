@@ -16,8 +16,8 @@ const userService = () =>{
 		});
 	};
 
-	const list = (userId) =>{
-		console.log(userId);
+	const list = (id) =>{
+		console.log(id.userId);
 		return new Promise((resolve, reject)=>{
 			User.findAll().then(user => {
 				addHistory({userId:userId, title:'Listed users', description:'User with ID: '+userId+ 'listed users.'})

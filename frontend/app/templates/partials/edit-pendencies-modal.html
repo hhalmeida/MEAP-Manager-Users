@@ -1,0 +1,45 @@
+<!--  -->
+<div class="modal-display" ng-show="vm.popupEditarPendencias.isVisible">
+  <div class="table-display vcenter-content modal-window">
+    <div class="table-cell">
+      <div class="container"><div class="row"><div class="col-xs-12 col-sm-4 offset-sm-4">
+        <div class="popup-window">
+          <div class="popup-header text-center">
+            <div class="green-text vcenter-content"><i class="fa fa-edit font-size-36"></i><span class="font-size-22 bold">&nbsp;&nbsp;Editar Pendência</span></div>
+            <div class="close-button" ng-click="vm.popupEditarPendencias.hide()"><i class="fa fa-close"></i></div>
+          </div>
+          <div class="popup-content">
+            <form name="vm.editarPendenciaForm">
+              <div class="dark-grey-text font-size-16">
+                <div class="table-display vcenter-content">
+                  <div class="table-cell fit-content">
+                    <label class="contestation-label">Alterar Status</label>
+                    <select class="form-control" name="pendencia_status" ng-options="status.codigo as status.descricao for status in vm.pendenciasStatus" ng-model="vm.pendencia.status" required></select>
+                    <div class="red-text font-size-11" ng-show="vm.editarPendenciaForm.pendencia_status.$error.required &&
+                                                                vm.editarPendenciaForm.pendencia_status.$dirty &&
+                                                                !vm.editarPendenciaForm.pendencia_status.$focused">Status obrigatório!</div>
+                  </div>
+                </div>
+                <div class="table-display vcenter-content" style="margin-top:7px">
+                    <div class="table-cell fit-content">
+                      <label class="contestation-label">Valor Proposto</label>
+                      <input type="text" class="form-control" name="pendencia_valor" ng-model="vm.pendencia.valor" ng-currency required/>
+                      <div class="red-text font-size-11" ng-show="vm.editarPendenciaForm.pendencia_valor.$error.required &&
+                                                                  vm.editarPendenciaForm.pendencia_valor.$dirty &&
+                                                                  !vm.editarPendenciaForm.pendencia_valor.$focused">Valor obrigatório!</div>
+                    </div>
+                </div>
+              </div>
+              <div class="vgap-20"><!-- Vertical Gap 20px --></div>
+              <div class="text-center">
+                <div class="adp-button md-button" ng-click="vm.popupEditarPendencias.hide()">Cancelar</div>
+                <div class="adp-button md-button green" ng-click="vm.editarPendencia(vm.editarPendenciaForm)" ng-disabled="vm.editarPendenciaForm.$invalid">Salvar</div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div></div></div>
+    </div>
+  </div>
+  <div class="modal-overlay"></div>
+</div>

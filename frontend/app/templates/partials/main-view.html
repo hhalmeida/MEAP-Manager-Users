@@ -1,0 +1,9 @@
+<!-- calc(100% - 60px) para evitar que o conteúdo sobreponha o cabeçalho -->
+<div style="height:calc(100% - 60px);" class="ng-cloak">
+  <ng-include src="'templates/partials/top-navbar.html'"></ng-include>
+  <ng-include src="'templates/partials/side-navbar.html'"></ng-include>
+  <section class="main-container" ng-class="{sidebarPushRight: isActive}">
+    <div ng-view=""></div>
+  </section>
+  <ng-include src="'templates/partials/ng-templates.html'"></ng-include>
+</div>

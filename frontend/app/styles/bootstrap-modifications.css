@@ -1,0 +1,57 @@
+/*-----------------------------------
+  Bootstrap modifications and Adds
+-------------------------------------*/
+
+/* Buttons
+----------------------------------*/
+.btn:not([disabled]),
+.btn:not(.disabled){
+  cursor:pointer;
+}
+
+
+.list-group-item-secondary-light{
+  background-color: #f9f9f9;
+}
+
+/* Navbar
+----------------------------------*/
+
+body{padding-top:55px;}
+body.hide-navbar{padding-top:0;}
+
+.navbar.bg-darkblue{
+  background-color: #e88e1d;
+  /* border-bottom: 5px solid #48536D; */
+  box-shadow: 0px 2px 10px #888888;
+}
+
+/* Tooltip
+----------------------------------*/
+.tooltip.show{opacity:1!important;}
+
+.tooltip .tooltip-inner {
+  border:1px solid #d6d6d6;
+  background: #efefef;
+  color: #6b92ce;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=right] .arrow::before,
+.tooltip.bs-tooltip-right .arrow::before{
+  border-right-color: #d6d6d6;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=left] .arrow::before,
+.tooltip.bs-tooltip-left .arrow::before{
+  border-left-color: #d6d6d6;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=top] .arrow::before,
+.tooltip.bs-tooltip-top .arrow::before{
+  border-top-color: #d6d6d6;
+}
+
+.tooltip.bs-tooltip-auto[x-placement^=bottom] .arrow::before,
+.tooltip.bs-tooltip-bottom .arrow::before{
+  border-bottom-color: #d6d6d6;
+}

@@ -1,4 +1,14 @@
+#backend
+--------
 node_modules
 node_modules/
 
 package-lock.json
+
+#frontend
+---------
+frontend/node_modules
+frontend/dist
+frontend/.tmp
+frontend/.sass-cache
+frontend/app/bower_components
