@@ -9,8 +9,10 @@ module.exports = {
 	},
 
 	list(req, res, next){
-		return UserServices().list(req.params)
-			.then(data =>res.send({data}))
+		return  UserServices().list(req.query)
+			.then(data => {
+			    return res.send({data});
+			})
 			.catch(err => res.send(400).send(err));
 	},
 
@@ -26,6 +28,4 @@ module.exports = {
 			.then(data => res.send(data))
 			.catch(err => res.status(400).send(err));
 	},
-
-
 };

@@ -31,7 +31,7 @@ function HomeService($q,HistoryAPI){
       userId:userId,
     },function(data){
       if(!data){defer.reject();return;}
-      defer.resolve(data);
+      defer.resolve(data.data);
       },
       function(data){
         defer.reject(data);
@@ -56,5 +56,5 @@ function HomeService($q,HistoryAPI){
 -----------------------------------------------------*/
 angular.module('app.services')
  .factory('HistoryAPI', ['$resource', 'ENV', function HistoryAPI($resource, ENV) {
-  return $resource(ENV.servicesBaseUrl+'/history/:userId', {userId:'@userId'}, {});
+  return $resource(ENV.servicesBaseUrl+'/histories/:userId', {userId:'@userId'}, {});
 }]);

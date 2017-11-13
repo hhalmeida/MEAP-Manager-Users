@@ -4,27 +4,11 @@
     AngularJS $locationProvider now uses "hashbang" notation #!
     http://stackoverflow.com/questions/16677528/location-switching-between-html5-and-hashbang-mode-link-rewriting
   -->
+
   <ul class="list-group">
-    <!-- <a href="#!/" class="list-group-item" ng-class="{active:activeRoute==''}">
-      <i class="fa fa-pie-chart"></i><span>&nbsp;&nbsp;Campanha ativa</span>
-    </a> -->
-    <a href="#!/clientes/importacao" class="list-group-item" ng-class="{active:activeRoute=='clientes' && (activeSubRoute=='importacao' || activeSubRoute=='processamento')}">
-      <i class="fa fa-user"></i><span>&nbsp;&nbsp;Clientes - Importação</span>
-    </a>
-    <a href="#!/clientes/consulta" class="list-group-item" ng-class="{active:activeRoute=='clientes' && (activeSubRoute!='importacao' && activeSubRoute!='processamento')}">
-      <i class="fa fa-search"></i><span>&nbsp;&nbsp;Clientes - Consulta</span>
-    </a>
-    <a href="#!/parceiros" class="list-group-item" ng-class="{active:activeRoute=='parceiros'}" ng-if="usuarioLogado.interno">
-      <i class="fa fa-users"></i><span>&nbsp;&nbsp;Parceiros</span>
-    </a>
-    <a href="#!/parceiros/{{usuarioLogado.parceiro.id}}/campanhas" class="list-group-item" ng-class="{active:activeRoute=='parceiros'}" ng-if="!usuarioLogado.interno">
-      <i class="fa fa-users"></i><span>&nbsp;&nbsp;Parceiro</span>
-    </a>
-    <a href="#!/usuarios" class="list-group-item" ng-class="{active:activeRoute=='usuarios'}" ng-if="usuarioLogado.perfil.id == 2">
-      <i class="fa fa-address-book"></i><span>&nbsp;&nbsp;Usuários</span>
-    </a>
-    <a href="#!/contestacao" class="list-group-item" ng-class="{active:activeRoute=='contestacao'}">
-      <i class="fa fa-gavel"></i><span>&nbsp;&nbsp;Contestação</span>
+   <a ng-repeat="user in vm.users" href="#!/home/{{user.id}}" class="list-group-item" ng-class="{active:activeRoute=='user'}">
+      <i class="fa fa-user"></i><span>&nbsp;&nbsp;{{user.username}}</span>
     </a>
   </ul>
+
 </nav>

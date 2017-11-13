@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="styles/utils.css">
     <link rel="stylesheet" href="styles/validation.css">
     <link rel="stylesheet" href="styles/bootstrap-modifications.css">
+    <link rel="stylesheet" href="bower_components/ngToast/dist/ngToast.css">
     <!-- endbuild -->
   </head>
   <body ng-app="app" ng-controller="RootCtrl as vm" ng-init="vm.init()" ng-class="{'hide-navbar':exibirLogin}">
@@ -32,6 +33,10 @@
     <!-- Add your site or application content here -->
     <ng-include src="'templates/partials/navbar-top.html'" ng-if="!exibirLogin"></ng-include>
     <ng-include src="'templates/partials/side-navbar.html'"></ng-include>
+
+    
+
+
     <section class="main-container" ng-class="{sidebarPushRight: isActive}">
         <div ng-view=""></div>
     </section>
@@ -42,7 +47,7 @@
         <div class="sk-spinner sk-spinner-rotating-plane"></div>
       </div></div>
     </div>
-
+<toast></toast>
     <!-- Google Analytics Here -->
 
     <!--[if lt IE 9]>
@@ -112,7 +117,6 @@
     <script src="templates/listas-provas/buscar-listas-provas/buscar-listas-provas-controller.js"></script>
     <script src="templates/listas-provas/editar-listas-provas/editar-listas-provas-controller.js"></script>
     <script src="templates/relatorios/gerar-relatorios/gerar-relatorios-controller.js"></script> -->
-    <script src="templates/usuarios/listar-usuarios/listar-usuarios-controller.js"></script>
     
     <!-- Utils -->
     <script src="js/utils/form-utils.js"></script>

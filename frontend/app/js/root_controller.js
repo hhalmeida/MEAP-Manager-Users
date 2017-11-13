@@ -42,14 +42,14 @@ function RootCtrl($scope,$rootScope,$route,$location,$timeout,$auth,ngToast,ENV,
   /*
   -------------------------------------------*/
   function _getUsers(){
-    RootServices.getUsers(0).then(successCallback,errorCallback)
+    RootServices.getUsers().then(sucess,error)
 
-    function successCallback(data){
+    function sucess(data){
       vm.users = data;
     }
 
-    function errorCallback(data){
-      //console.log(data);
+    function error(data){
+      console.log("erro");
     }
   }
 

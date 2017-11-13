@@ -12,7 +12,9 @@ function RootServices($q,UserAPI){
                 Methods
   --------------------------------------**/
   var methods = {
-    getUsers:getUsers
+    getUsers:getUsers,
+    userCreate:userCreate,
+    userUpdate:userUpdate
   }
 
   return methods;
@@ -24,14 +26,16 @@ function RootServices($q,UserAPI){
 
   /* Get users
   -------------------------------------------*/
-  function getUsers(userId){
+  function getUsers(id, userId){
     var defer = $q.defer();
 
     UserAPI.get({
-      userId : userId,
+      id : id,
+      userId : userId
+
     },function(data){
       if(!data){defer.reject();return;}
-      defer.resolve(data);
+      defer.resolve(data.data);
       },
       function(data){
         defer.reject(data);
@@ -41,6 +45,18 @@ function RootServices($q,UserAPI){
     return defer.promise;
   }
   
+ /* 
+  -------------------------------------------*/
+  function userCreate(payload, successCallback, errorCallback ) {
+    UserAPI.save(payload,function(data){successCallback(data.toJSON());},function(data){errorCallback(data)});
+  }
+
+  /* 
+  -------------------------------------------*/
+  function userUpdate(payload, successCallback, errorCallback ) {
+    UserAPI.update(payload,function(data){successCallback(data.toJSON());},function(data){errorCallback(data)});
+  }
+
   // /* Atualiza a senha do usuario autenticado
   // -------------------------------------------*/
   // function updatePassword(payload, successCallback, errorCallback ) {
@@ -57,13 +73,5 @@ function RootServices($q,UserAPI){
 -----------------------------------------------------*/
 angular.module('app.services')
  .factory('UserAPI', ['$resource', 'ENV', function UserAPI($resource, ENV) {
-  return $resource(ENV.servicesBaseUrl+'/users/:userId', {userId:'@userId'}, {});
+  return $resource(ENV.servicesBaseUrl+'/users', {id:'@id', userId:'@userId'}, {});
 }]);
-
-// /*
-//   POST:
-// -----------------------------------------------------*/
-// angular.module('app.services')
-//  .factory('UsuarioLogadoResource', ['$resource', 'ENV', function UsuarioLogadoResource($resource, ENV) {
-//   return $resource(ENV.servicesBaseUrl+'/obter_dados_usuario/', {}, {});
-// }]);

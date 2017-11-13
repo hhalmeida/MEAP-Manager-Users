@@ -1,72 +1,82 @@
 <div class="container" ng-init="vm.init()">
   <div class="vgap-30"><!-- Vertical Gap 30px --></div>
-  <div ng-repeat="history in vm.histories">
-  	<h1 class="bebas blue-grey-text">{{history.title}}</h1>
+  <div class="pull-right">
+    <div class="vgap-10 "><!-- Vertical Gap 30px --></div>
+    <button type="button" class="btn btn-outline-primary " ng-click="vm.addUser()">Adicionar Usuário</button>
+    <button type="button" class="btn btn-outline-primary " ng-click="vm.editUser()">Editar Usuário</button>
+    <button type="button" class="btn btn-outline-primary " ng-click="vm.viewHistories()">Ver Historico</button>
+  </div>
+  <hr>
+  <div class="" ng-if="vm.actionadduser">
+  	<h1 class="bebas blue-grey-text">Adicionar Usuário</h1>
+    <div class="vgap-10"><!-- Vertical Gap 30px --></div>
+    <div>
+      <form name="vm.formLogin">
+        <div class="error-wrapper">
+          <input type="test" name="username" ng-model="vm.user.username" class="form-control" placeholder="Nome" required/>
+        </div>
+        <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+        <div class="error-wrapper">
+          <input type="email" name="email" ng-model="vm.user.email" class="form-control" placeholder="Email" required/>
+        </div>
+        <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+        <div class="error-wrapper">
+          <input type="password" name="senha" ng-model="vm.user.passwd" class="form-control" placeholder="Senha" required />
+        </div>
+        <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+         <div class="error-wrapper">
+          <select class="form-control" ng-model="vm.user.profile" ng-options="x for x in ['Master','Admin','Usuario']"> <option value="">---: Selecione um perfil :---</option></select>
+        </div>
+        <div class="vgap-45"><!--  Vertical Gap 20px --></div>
+        <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.saveUser()">Salvar</button>
+        <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.cancel()">Cancelar</button>
+        <div class="vgap-60"><!--  Vertical Gap 60px --></div>
+      </form>
+    </div>
   </div>
 
-  <div class="container">
-    <ul class="timeline">
-        <li><!--Time Line Element-->
-          <div class="timeline-badge up"><i class="fa fa-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Time Line Entry #1</h4>
-            </div>
-            <div class="timeline-body"><!--Time Line Body&Content-->
-              <p>Time line content is placed here...</p>
-            </div>
-          </div>
-        </li>
-        <li><!--Time Line Element-->
-          <div class="timeline-badge down"><i class="fa fa-thumbs-down"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Time Line Entry #2</h4>
-            </div>
-            <div class="timeline-body"><!--Time Line Body&Content-->
-              <p>Time line content is placed here...</p>
-              <p>And some more Time line content </p>
-            </div>
-          </div>
-        </li>
-        <li><!--Time Line Element-->
-          <div class="timeline-badge neutral"><i class="fa fa-navicon"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Time Line Entry #3</h4>
-            </div>
-            <div class="timeline-body"><!--Time Line Body&Content-->
-              <p>Time line content is placed here...</p>
-              <p>This appears to be a neutral time line enty...</p>
-            </div>
-          </div>
-        </li>
-        <li><!--Time Line Element-->
-          <div class="timeline-badge down"><i class="fa fa-thumbs-down"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Time Line Entry #4</h4>
-            </div>
-            <div class="timeline-body"><!--Time Line Body&Content-->
-              <p>Time line content is placed here...</p>
-              <p>And some more Time line content </p>
-            </div>
-          </div>
-        </li>
-        
-        <li><!--Time Line Element-->
-          <div class="timeline-badge up"><i class="fa fa-thumbs-up"></i></div>
-          <div class="timeline-panel">
-            <div class="timeline-heading">
-              <h4 class="timeline-title">Time Line Entry #5</h4>
-            </div>
-            <div class="timeline-body"><!--Time Line Body&Content-->
-              <p>Time line content is placed here...</p>
-            </div>
-          </div>
-        </li>
-    </ul>
-</div>
+  <div class="" ng-if="vm.actionedituser">
+    <h1 class="bebas blue-grey-text">Editar Usuário</h1>
+    <div class="vgap-10"><!-- Vertical Gap 30px --></div>
+    <div>
+      <form name="vm.formLogin">
+        <div class="error-wrapper">
+          <input type="test" name="username" ng-model="vm.user.username" class="form-control" placeholder="Nome" required/>
+        </div>
+        <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+        <div class="error-wrapper">
+          <input type="email" name="email" ng-model="vm.user.email" class="form-control" placeholder="Email" required/>
+        </div>
+        <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+        <div class="error-wrapper">
+          <input type="password" name="senha" ng-model="vm.user.passwd" class="form-control" placeholder="Senha" required />
+        </div>
+        <div class="vgap-5"><!--  Vertical Gap 5px --></div>
+         <div class="error-wrapper">
+          <select class="form-control" ng-model="vm.user.profile" ng-options="x for x in ['Master','Admin','Usuario']"> <option value="">---: Selecione um perfil :---</option></select>
+        </div>
+        <div class="vgap-45"><!--  Vertical Gap 20px --></div>
+        <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.updateUser()">Salvar</button>
+        <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.cancel()">Cancelar</button>
+        <div class="vgap-60"><!--  Vertical Gap 60px --></div>
+      </form>
+    </div>
+  </div>
 
+  <div class="vgap-30"><!-- Vertical Gap 30px --></div>
 
+  <ul class="timeline" ng-if="vm.actionviewhistories">
+      <li ng-repeat="history in vm.histories"><!--Time Line Element-->
+        <div class="timeline-badge up"><i class="fa fa-navicon"></i></div>
+        <div class="timeline-panel">
+          <div class="timeline-heading">
+            <h4 class="timeline-title">{{history.title}}</h4>
+          </div>
+          <div class="timeline-body"><!--Time Line Body&Content-->
+            <p ng-if="vm.checkId(history.userId)">Ação realizada pelo usuário Logado.!</p>
+            <p ng-if="!vm.checkId(history.userId)">{{history.description}}</p>
+          </div>
+        </div>
+      </li>
+  </ul>
 </div>

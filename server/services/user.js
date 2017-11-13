@@ -16,13 +16,22 @@ const userService = () =>{
 		});
 	};
 
-	const list = (id) =>{
-		console.log(id.userId);
+	const list = (query) =>{
 		return new Promise((resolve, reject)=>{
-			User.findAll().then(user => {
-				addHistory({userId:userId, title:'Listed users', description:'User with ID: '+userId+ 'listed users.'})
-				return resolve(user);
-			}).catch(e=> reject(e));
+			console.log("User Services List");
+			console.log(query);
+			if(query.userId){
+				User.findById(query.userId).then(user => {
+		        	addHistory({userId:query.id, title:'Listed user', description:'User with ID: '+query.id+ ' listed user with id: '+query.userId+'.'})
+					return resolve(user);
+	     		}).catch(e => reject(e));
+			}else{
+				User.findAll().then(users => {
+					addHistory({userId:query.id, title:'Listed users', description:'User with ID: '+query.id+ ' listed users.'})
+					return resolve(users);
+				}).catch(e=> reject(e));
+			}
+			
 		});
 	};
 

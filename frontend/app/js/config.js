@@ -57,59 +57,25 @@ angular.module('app')
 
     .when('/home', {
       templateUrl: 'templates/home/home.html',
-      controller: 'HomeCtrl as vm'
+      controller: 'HomeCtrl as vm',
+      resolve:{
+        historiesUser: ['$route',function($route) {
+          var historiesUser = [];
+          return historiesUser;
+        }]
+      }
     })
 
     .when('/home/:userId', {
       templateUrl: 'templates/home/home.html',
       controller: 'HomeCtrl as vm',
       resolve:{
-        history: ['$route','HomeService',function($route,HomeService) {
+        historiesUser: ['$route','HomeService',function($route,HomeService) {
           var userId = $route.current.params.userId;
           return HomeService.getHistories(userId);
-        }],
+        }]
       }
     })
-    
-    // .when('/assuntos', {
-    //   templateUrl: 'templates/assuntos/editar-arvore-assuntos/editar-arvore-assuntos.html',
-    //   controller: 'EditarArvoreAssuntosCtrl as vm'
-    // })
-    
-    // .when('/buscar-questoes', {
-    //   templateUrl: 'templates/questoes/buscar-questoes/buscar-questoes.html',
-    //   controller: 'BuscarQuestoesCtrl as vm'
-    // })
-
-    // .when('/editar-questoes', {
-    //   templateUrl: 'templates/questoes/editar-questoes/editar-questoes.html',
-    //   controller: 'EditarQuestoesCtrl as vm'
-    // })
-    
-    // .when('/validar-questoes', {
-    //   templateUrl: 'templates/questoes/validar-questoes/validar-questoes.html',
-    //   controller: 'ValidarQuestoesCtrl as vm'
-    // })
-    
-    // .when('/buscar-listas-provas', {
-    //   templateUrl: 'templates/listas-provas/buscar-listas-provas/buscar-listas-provas.html',
-    //   controller: 'BuscarListasProvasCtrl as vm'
-    // })
-    
-    // .when('/editar-listas-provas', {
-    //   templateUrl: 'templates/listas-provas/editar-listas-provas/editar-listas-provas.html',
-    //   controller: 'EditarListasProvasCtrl as vm'
-    // })
-    
-    // .when('/relatorios', {
-    //   templateUrl: 'templates/relatorios/gerar-relatorios/gerar-relatorios.html',
-    //   controller: 'GerarRelatoriosCtrl as vm'
-    // })
-    
-    // .when('/usuarios', {
-    //   templateUrl: 'templates/usuarios/listar-usuarios/listar-usuarios.html',
-    //   controller: 'ListarUsuariosCtrl as vm'
-    // })
 
     .otherwise({
       redirectTo: '/home'
