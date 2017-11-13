@@ -17,13 +17,13 @@ In this stack was used the following technologies and implemented some configura
 > - AngularJS : Framework frontend. 
 
 ----------
-
 Attention
 ---------
 
 > For run this project you need to install **Node8** and **Postgres9.6**
 > another instalations follow to **npm install* in project
 > from terminal.
+>
 
 #### <i class="icon-hdd"></i> Instalações
 **Backend** :
@@ -79,7 +79,11 @@ histories/:userId | GET		|
  - Write Tests
  - Implement Security
  - Implement Session for user logged
- - 
+
+### Bugs
+ - Fix start project when zero information.
+ - Add Label to start informing need Adicionar Usuário.
+
 
 License
 ----
