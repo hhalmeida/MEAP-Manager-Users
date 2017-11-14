@@ -33,11 +33,12 @@ Time Work and task
 > -- Adjust API List All Users
 > -- Implemented verification if User and histories is empty objects.
 >
-> - 14/11 :: 14:30 - 18:00
+> - 14/11 :: 14:30 - 17:00
+> -- Adjust layout, buttons and timeline, remove background image.
 > -- Ajust API list Users for create history when dont exists user registred
->
->
->
->
+> -- Adjust refresh list users with save new user and edit user
+> -- Implemented function for set user when in Url set to User ID ex. #!/home/10 
+> -- Validation for selected user for edit, if not selected button is disabled
+> -- Adjust API for update user, and adjust $resource for call method put (update).
 >
 >

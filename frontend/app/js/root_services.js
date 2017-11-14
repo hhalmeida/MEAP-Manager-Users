@@ -4,8 +4,8 @@ angular
   .module('app.services')
   .factory('RootServices', RootServices);
 
-RootServices.$inject = ['$q','UserAPI'];
-function RootServices($q,UserAPI){
+RootServices.$inject = ['$q','UserAPI','UserUpdateAPI'];
+function RootServices($q,UserAPI,UserUpdateAPI){
 
 
   /**-------------------------------------
@@ -54,7 +54,7 @@ function RootServices($q,UserAPI){
   /* 
   -------------------------------------------*/
   function userUpdate(payload, successCallback, errorCallback ) {
-    UserAPI.update(payload,function(data){successCallback(data.toJSON());},function(data){errorCallback(data)});
+    UserUpdateAPI.update(payload,function(data){successCallback(data.toJSON());},function(data){errorCallback(data)});
   }
 
   // /* Atualiza a senha do usuario autenticado
@@ -74,4 +74,12 @@ function RootServices($q,UserAPI){
 angular.module('app.services')
  .factory('UserAPI', ['$resource', 'ENV', function UserAPI($resource, ENV) {
   return $resource(ENV.servicesBaseUrl+'/users', {id:'@id', userId:'@userId'}, {});
+}]);
+
+ /*
+  GET:
+-----------------------------------------------------*/
+angular.module('app.services')
+ .factory('UserUpdateAPI', ['$resource', 'ENV', function UserAPI($resource, ENV) {
+  return $resource(ENV.servicesBaseUrl+'/users/:id', {id:'@id'}, {'update': { method:'PUT' }});
 }]);

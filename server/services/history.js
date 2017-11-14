@@ -10,10 +10,14 @@ const historyService = () =>{
 	};
 
 	const listAll = (id) =>{
-
 		return new Promise((resolve, reject) =>{
 			History.findAll().then(histories => { 
-				addHistory({userId:id.userId, title:'Listed All Histories', description:'User with ID: '+id.userId+ ' listed all histories.'})
+				if(id == undefined){
+					addHistory({userId:id.userId, title:'List All Histories', description:'User with ID: '+id.userId+ ' listed all histories.'})
+				}else{
+					addHistory({userId:id.userId, title:'System list All Histories', description:'System listed all histories.'})
+				}
+				
 				return resolve(histories);
 			}).catch(e=> reject(e));
 		});
@@ -21,7 +25,6 @@ const historyService = () =>{
 
 	const listByUserId = (id, userId) =>{
 		return new Promise((resolve, reject) =>{
-
 			History.findAll({
 				where:{userId:id.userId},
 			}).then(historyUser => {

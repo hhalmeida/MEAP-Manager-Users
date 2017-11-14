@@ -24,7 +24,8 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
   vm.editUser = editUser;
   vm.viewHistories = viewHistories;
   vm.saveUser = saveUser;
-
+  vm.updateUser = updateUser;
+  vm.cancel = cancel;
   /**-------------------------------
            Implementation
   ---------------------------------**/
@@ -52,6 +53,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
         console.log(data)
       }
   };
+
   /*
   -------------------------------------------*/
   function checkId(userId){
@@ -68,6 +70,8 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
     setview('addUser');
   };
 
+  /*
+  -------------------------------------------*/
   function saveUser(){
      var payload = {
       username : vm.user.username,
@@ -83,6 +87,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
               content: 'Usuário salvo com sucesso!'
       });
       setview('viewHistories');
+      updateUserList();
      }
      function error(data){
       ngToast.create({className: 'danger',
@@ -91,7 +96,8 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
      }
   }
 
-
+  /*
+  -------------------------------------------*/
   function editUser(){
     if(vm.userId == null){
       ngToast.create({className: 'danger',
@@ -103,6 +109,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
       function success(data){
         setview('editUser');
         vm.user = data;
+        
       }
       
       function error(data){
@@ -113,8 +120,16 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
 
   /*
   -------------------------------------------*/
+  function cancel(){
+    setview('viewHistories');
+    $location.path('/home');
+  }
+
+  /*
+  -------------------------------------------*/
   function updateUser(user){
     var payload = {
+      id : vm.user.id,
       username : vm.user.username,
       email: vm.user.email,
       passwd : vm.user.senha,
@@ -127,6 +142,8 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
       ngToast.create({className: 'success',
               content: 'Usuário editado com sucesso!'
       });
+
+      updateUserList();
       setview('viewHistories');
      }
      function error(data){
@@ -136,10 +153,22 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
      }
   };
 
+  /*
+  -------------------------------------------*/
+  function updateUserList(){
+    console.log("Prepara.... vamos la")
+    $rootScope.$emit("UpdateUser", {});
+  };
+
+
+  /*
+  -------------------------------------------*/
   function viewHistories(user){
     setview('viewHistories');
   }
 
+  /*
+  -------------------------------------------*/
   function setview(action){
     switch(action) {
       case 'addUser':

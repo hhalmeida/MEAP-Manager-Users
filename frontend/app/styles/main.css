@@ -9,7 +9,7 @@
 html,body{
   height:100%;
   min-height:100%;
-  background-color:transparent;
+  background-color:#f7f7f7;
   font: 14px/1.5 Roboto,PT Sans Narrow,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
@@ -27,7 +27,7 @@ img{max-width:100%;}
     list-style: none;
     padding: 25px 0px;
     position: relative;
-    margin: -46px 120px 0 10px;
+    margin: -45px 120px 0 10px;
 }
 .timeline:before {
   top: 0;
@@ -82,7 +82,7 @@ img{max-width:100%;}
   display: inline-block;
 }
 .timeline > li > .timeline-badge {
-  color: #FFFF99;
+  color: #FFF;
   width: 30px;
   height: 30px;
   line-height: 30px;
@@ -206,10 +206,6 @@ img{max-width:100%;}
 .pr-list li .table-cell{padding:6px;}
 .pr-list li {border:1px solid transparent;}
 .pr-list li:hover {border:1px dashed #DCDCDC;background-color:#FAFAFA;}
-
-
-
-
 
 .pr-tabs .nav.nav-tabs,
 .pr-tabs .nav.nav-tabs li{

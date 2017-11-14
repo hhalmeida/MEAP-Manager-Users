@@ -7,6 +7,10 @@
   <div class="text-center" style="color:black; margin: 12px 0">
   	<span style="font-size:150%;">Lista de usuários</span>
   </div>
+
+  <div ng-if="vm.users.length == 0" class="text-center" style="border: 1px dashed lightgray; margin: 6px">
+  	<span style="font-size:95%;">Não existe usuários cadastrados, clique em Adicionar Usuário</span>
+  </div>
   
   <ul class="list-group">
    <a ng-repeat="user in vm.users" href="#!/home/{{user.id}}" ng-click="vm.getUser(user)" class="list-group-item" ng-class="{active:activeRoute=='user'}">

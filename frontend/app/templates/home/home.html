@@ -62,7 +62,7 @@
           <select class="form-control" ng-model="vm.user.profile" ng-options="x for x in ['Master','Admin','Usuario']"> <option value="">---: Selecione um perfil :---</option></select>
         </div>
         <div class="vgap-45"><!--  Vertical Gap 20px --></div>
-        <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.updateUser()">Salvar</button>
+        <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.updateUser(vm.user)">Atualizar | Salvar</button>
         <button type="button" class="btn btn-outline-primary btn-block" ng-click="vm.cancel()">Cancelar</button>
         <div class="vgap-60"><!--  Vertical Gap 60px --></div>
       </form>
@@ -79,8 +79,8 @@
             <h4 class="timeline-title">{{history.title}}</h4>
           </div>
           <div class="timeline-body"><!--Time Line Body&Content-->
-            <p ng-if="vm.checkId(history.userId)">Ação realizada pelo usuário Logado.!</p>
-            <p ng-if="!vm.checkId(history.userId)">{{history.description}}</p>
+            <!-- <p ng-if="vm.checkId(history.userId)">Ação realizada pelo usuário Logado.!</p> -->
+            <p >{{history.description}}</p>
           </div>
         </div>
       </li>

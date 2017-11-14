@@ -27,6 +27,11 @@ function RootCtrl($scope,$rootScope,$route,$location,$timeout,$auth,ngToast,ENV,
   /**-------------------------------
            Implementation
   ---------------------------------**/
+  $rootScope.$on("UpdateUser", function(){
+    console.log("Opa atualizando");
+   _getUsers();
+  });
+
 
   /*
   -------------------------------------------*/
@@ -47,12 +52,23 @@ function RootCtrl($scope,$rootScope,$route,$location,$timeout,$auth,ngToast,ENV,
 
     function sucess(data){
       vm.users = data;
+      _setUserSelected();
     }
 
     function error(data){
       console.log("erro");
     }
   }
+
+function _setUserSelected(){
+  var userId = $route.current.params.userId;
+  angular.forEach(vm.users, function(value, key) {
+    console.log(key + ': ' + value);
+    if(value.id == userId){
+      getUser(value);
+    }
+});
+}
 
 
 function getUser(user){
@@ -160,3 +176,4 @@ function getUser(user){
     if (windowWidth >= 1200){$rootScope.screenSize = 4;}  // col-xl-
   }
 }
+
