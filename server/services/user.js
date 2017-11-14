@@ -18,19 +18,16 @@ const userService = () =>{
 
 	const list = (query) =>{
 		return new Promise((resolve, reject)=>{
-			console.log("User Services List");
-			console.log(query);
 			if(query.userId){
 				User.findById(query.userId).then(user => {
 					Profile.findAll({where:{userId:user.id}}).then(profile =>{
-						user.profile = profile.title;
 						addHistory({userId:query.id, title:'List user', description:'User with ID: '+query.id+ ' listed user with id: '+query.userId+'.'})
-						return resolve(user);
+						let myUser = {id: user.id, username: user.username, email: user.email, passwd:user.passwd, profile: profile[0].dataValues.title};
+						return resolve(myUser);
 					}).catch(e => reject(e));
 	     		}).catch(e => reject(e));
 			}else{
 				User.findAll().then(users => {
-					console.log(users)
 					if(users.length > 0){
 						addHistory({userId:query.id, title:'List all users', description:'User with ID: '+query.id+ ' listed users.'})
 					}else{
@@ -39,7 +36,6 @@ const userService = () =>{
 					return resolve(users);
 				}).catch(e=> reject(e));
 			}
-			
 		});
 	};
 
@@ -63,8 +59,6 @@ const userService = () =>{
 
 	const remove = (id) =>{
 		return new Promise((resolve, reject) =>{
-			console.log(id);
-
 			User.findById(id.userId).then(userItem => {
 		        if (!userItem) {
 		          return reject({

@@ -26,7 +26,7 @@
 
 .bebas{font-family: 'Bebas Neue', Helvetica, Arial, sans-serif;}
 .open-sans{font-family: 'Open Sans', Helvetica, Arial, sans-serif;}
-
+.margim-bebas{ margin: 0 50px 10px; }
 
 body{
   color:#777;
