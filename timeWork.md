@@ -1,9 +1,3 @@
-
-	
-
-
-
-
 Time Work and task 
 ---------
 > - 10/11 :: 10:30 - 13:30 
@@ -33,3 +27,17 @@ Time Work and task
 >	-- Testing project,
 >	-- testing instalation for run project
 >	-- create readme.md for guide to install and run project.
+>
+> - 14/11 :: 10:30 - 13:00
+> -- Adjust UX 
+> -- Adjust API List All Users
+> -- Implemented verification if User and histories is empty objects.
+>
+> - 14/11 :: 14:30 - 18:00
+> -- Ajust API list Users for create history when dont exists user registred
+>
+>
+>
+>
+>
+>

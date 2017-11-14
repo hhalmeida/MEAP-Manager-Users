@@ -115,7 +115,7 @@ hr {
   border-right:1px solid #e3e3e3;
   position: fixed;
   z-index: 2;
-  top: 45px;
+  top: 65px;
   left: 250px;
   width: 250px;
   margin-left: -250px;
@@ -191,7 +191,7 @@ hr {
 --------------------------------------------------*/
 
 .main-container {
-    margin: -6px 0 0 300px;
+    margin: -6px 0 0 208px;
     padding: 0px 26px 40px 26px;
     -ms-overflow-x: hidden;
     overflow-x: hidden;

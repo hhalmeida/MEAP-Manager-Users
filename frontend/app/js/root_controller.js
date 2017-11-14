@@ -15,13 +15,14 @@ function RootCtrl($scope,$rootScope,$route,$location,$timeout,$auth,ngToast,ENV,
   var vm = this;
 
   vm.users = {};
-
+  vm.userSelected = "";
   // Functions
   vm.init = init;
   vm.toggleSideNav = toggleSideNav;
   $rootScope.logout = _logout;
   $rootScope.atualizarSenha = atualizarSenha;
   vm.invalidPass = false;
+  vm.getUser = getUser;
 
   /**-------------------------------
            Implementation
@@ -53,6 +54,10 @@ function RootCtrl($scope,$rootScope,$route,$location,$timeout,$auth,ngToast,ENV,
     }
   }
 
+
+function getUser(user){
+  vm.userSelected = user.username;
+}
 
   /*
   -------------------------------------------*/

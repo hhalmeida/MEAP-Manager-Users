@@ -14,7 +14,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
 
   var vm = this;
   vm.histories = historiesUser;
-  vm.userId = $route.current.params.userId == undefined ? {}: $route.current.params.userId;
+  vm.userId = $route.current.params.userId == undefined ? null : $route.current.params.userId;
   
   // Functions
   vm.init = init;
@@ -73,7 +73,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
       username : vm.user.username,
       email: vm.user.email,
       passwd : vm.user.senha,
-      profile: vm.user.selectedProfile
+      profile: vm.user.profile
      };
 
      RootServices.userCreate(payload, sucess, error);
@@ -93,7 +93,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
 
 
   function editUser(){
-    if(vm.userId.length == 0){
+    if(vm.userId == null){
       ngToast.create({className: 'danger',
               content: 'Selecione um usuário!'
       });
@@ -118,7 +118,7 @@ function HomeCtrl($scope,$route,$rootScope,$location,ngToast,HomeService,histori
       username : vm.user.username,
       email: vm.user.email,
       passwd : vm.user.senha,
-      profile: vm.user.selectedProfile
+      profile: vm.user.profile
      };
 
      RootServices.userUpdate(payload, sucess, error);

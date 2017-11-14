@@ -10,6 +10,7 @@ html,body{
   height:100%;
   min-height:100%;
   background-color:transparent;
+  font: 14px/1.5 Roboto,PT Sans Narrow,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
 a,
@@ -23,10 +24,10 @@ img{max-width:100%;}
 
 
 .timeline {
-  list-style: none;
-  padding: 20px 0 20px;
-  position: relative;
-  margin: -46px 0px;
+    list-style: none;
+    padding: 25px 0px;
+    position: relative;
+    margin: -46px 120px 0 10px;
 }
 .timeline:before {
   top: 0;
